@@ -1,0 +1,53 @@
+{
+	"name": "cycletreks",
+	"version": "1.0.0",
+	"description": "Pulling cycle adventures from Strava",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"worker:login": "cd worker/ && wrangler login",
+		"worker:init": "cd worker/ && wrangler secret put CLIENT_ID && wrangler secret put CLIENT_CODE && wrangler secret put CLIENT_SECRET && wrangler secret put ATHLETE_ID",
+		"worker:dev": "cd worker/ && wrangler dev",
+		"worker:tail": "cd worker/ && wrangler tail --format pretty",
+		"worker:preview": "cd worker/ && wrangler preview --watch",
+		"worker:publish": "cd worker/ && wrangler publish"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mountainash/CycleTreks.git"
+	},
+	"keywords": [
+		"cycletrek",
+		"strava",
+		"map",
+		"adventure",
+		"holiday"
+	],
+	"author": "Mountain/\\Ash",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mountainash/CycleTreks/issues"
+	},
+	"homepage": "https://github.com/mountainash/CycleTreks#readme",
+	"dependencies": {},
+	"devDependencies": {
+		"@cloudflare/wrangler": "^1.19.3"
+	},
+	"eslintConfig": {
+		"parserOptions": {
+			"ecmaVersion": 2018,
+			"sourceType": "module"
+		},
+		"env": {
+			"browser": true,
+			"node": true,
+			"serviceworker": true
+		}
+	},
+	"prettier": {
+		"trailingComma": "es5",
+		"tabWidth": 4,
+		"semi": true,
+		"singleQuote": true
+	}
+}
