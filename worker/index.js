@@ -15,15 +15,6 @@ const config = {
 		host: 'https://www.strava.com',
 		auth: 'https://www.strava.com/oauth/authorize',
 	},
-	client_id: CLIENT_ID, // CF Workers use env vars
-	client_code: CLIENT_CODE,
-	client_secret: CLIENT_SECRET,
-	athlete_id: ATHLETE_ID,
-	scopes: [
-		'read',
-		'activity:read',
-	],
-	grant_type: 'authorization_code',
 };
 
 function handleError(results) {
@@ -56,11 +47,10 @@ async function handleAccessToken(auth_code) {
 	const endpoint = `${config.endpoints.host}/api/v3/oauth/token`;
 	const body = {
 		code: auth_code,
-		client_id: config.client_id,
-		client_secret: config.client_secret,
-		grant_type: config.grant_type,
-	}
-
+		client_id: CLIENT_ID,
+		client_secret: CLIENT_SECRET,
+		grant_type: 'authorization_code',
+	};
 	const init = {
 		body: JSON.stringify(body),
 		method: 'POST',
