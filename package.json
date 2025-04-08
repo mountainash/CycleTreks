@@ -2,15 +2,15 @@
 	"name": "cycletreks",
 	"version": "1.1.0",
 	"description": "Pulling cycle adventures from Strava",
-	"main": "index.js",
+	"main": "worker/index.js",
+	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"worker:login": "cd worker/ && wrangler login",
-		"worker:dev": "cd worker/ && wrangler dev",
-		"worker:tail": "cd worker/ && wrangler tail --format pretty",
-		"worker:preview": "cd worker/ && wrangler preview --watch",
-		"worker:publish": "cd worker/ && wrangler publish"
+		"worker:login": "wrangler login",
 		"worker:init": "wrangler secret put CLIENT_ID && wrangler secret put CLIENT_SECRET",
+		"worker:dev": "wrangler dev",
+		"worker:tail": "wrangler tail --format pretty",
+		"worker:publish": "wrangler deploy"
 	},
 	"repository": {
 		"type": "git",
@@ -31,7 +31,7 @@
 	"homepage": "https://github.com/mountainash/CycleTreks#readme",
 	"dependencies": {},
 	"devDependencies": {
-		"@cloudflare/wrangler": "^1.19.3"
+		"wrangler": "4.8.0"
 	},
 	"eslintConfig": {
 		"parserOptions": {

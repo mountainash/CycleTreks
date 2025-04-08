@@ -24,10 +24,10 @@ Using a Cloudflare Worker to connect to the Strava API and pull concurrent cycle
 ### Setup
 
 1. `npm install`
-1. `cp .env.example .env`
-1. Edit `.env` with keys and IDs from your [Strava Application settings](https://www.strava.com/settings/api)
-1. `npm run worker:init` to put the details from `.env` into `worker/wrangler.toml` [Docs](https://developers.cloudflare.com/workers/platform/environment-variables#adding-environment-variables-via-wrangler)
-1. `wrangler login` (optional for easier deployment with `npm run worker:publish`, but _before_ publishing your code you need to edit `wrangler.toml` file and add your Cloudflare `account_id`)
+1. `cp .env.example .dev.vars`
+1. Edit `.dev.vars` with keys and IDs from your [Strava Application settings](https://www.strava.com/settings/api)
+1. `npm run worker:init` to put the details from `.dev.vars` into `worker/wrangler.toml` [Docs](https://developers.cloudflare.com/workers/platform/environment-variables#adding-environment-variables-via-wrangler)
+1. `wrangler login` (optional for easier deployment with `npm run worker:publish`)
 
 ### Develop
 
@@ -38,6 +38,7 @@ npm run worker:tail # for logs from the remote Worker - good for callbacks
 
 ## Resources
 
+- [UI](https://codepen.io/mountainash/pen/jOgPjob)
 - **Strava**
   - [API Docs](https://developers.strava.com/docs/)
   - [Strava API Auth flow](https://developers.strava.com/docs/authentication/#requestingaccess)
